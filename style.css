@@ -1,222 +1,186 @@
- @font-face {
+@font-face {
   font-family: Orbitron;
   src: url(Orbitron-Black.ttf);
 }
-
+html * {
+  box-sizing: border-box;
+}
 html,
 body {
-    height: 100%;
-	color: #D0D0CE;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
+  height: 100vh;
+  color: #d0d0ce;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
 }
 
-
-body{
-	background-color: black;
+body {
+  background-color: black;
+  padding: 24px;
 }
 
-h3{
-    font-family: Orbitron, sans-serif;
-    color: #B239FF;
+aside {
+  position: fixed;
+  top: 100px;
+  flex: 1;
+}
+header {
+  display: flex;
+  position: fixed;
+  top: 24px;
+}
+form.menue {
+  display: flex;
+}
+footer {
+  display: flex;
+  position: fixed;
+  width: calc(100% - 48px);
+  height: 64px;
+  bottom: 24px;
+  padding: 24px;
+}
+footer > #download {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+}
+#download > button {
+  margin: 0 24px;
+}
+#help {
+  font-family: Orbitron, sans-serif;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+#helpcontent {
+  visibility: hidden;
 }
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: blue;
-}
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3vw;
-    height: 3vw;
-}
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 3vw;
-    height: 3vw;
-
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+#infobox {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  color: #6800e7;
+  margin-left: auto;
 }
 
-
-#col1:checked + label:before,
-#col1:not(:checked) + label:before {
-    border: 2px solid #B239FF;
-}
-#col2:checked + label:before,
-#col2:not(:checked) + label:before {
-    border: 2px solid #6800E7;
-}
-#col3:checked + label:before,
-#col3:not(:checked) + label:before {
-    border: 2px solid #05B9EC;
-}
-#col4:checked + label:before,
-#col4:not(:checked) + label:before {
-    border: 2px solid #02FAE0;
+#infobox > a {
+  color: #6800e7;
+  font-family: sans-serif;
+  font-size: 1vw;
+  text-decoration: none;
 }
 
-#col1 + label:after{
-    background: #B239FF;
+#infobox > a:hover {
+  color: #05b9ec;
 }
-#col2 + label:after{
-    background: #6800E7;
+h3 {
+  font-family: Orbitron, sans-serif;
+  color: #b239ff;
 }
-#col3 + label:after{
-    background: #05B9EC;
-}
-#col4 + label:after{
-    background: #02FAE0;
-}
-
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+input {
+  margin-right: 24px;
+  height: 100%;
 }
 
-#col2stage, #col3stage, #col4stage{
-    margin-left: 2vw;
+[type='radio']:not(:checked) + label {
+  opacity: 0;
 }
-
-#col4stage{
-    margin-right: 2.8vw;
-}
-
-#infobox{
-position: fixed;
-bottom: 5px;
-right: 5px;
-color: #6800E7;
-}
-
-#infobox>a{
-	color: #6800E7;
-	font-family: sans-serif;
-	font-size: 1vw;
-	text-decoration: none;
-}
-
-#infobox>a:hover{
-	color: #05B9EC;
+[type='radio']:checked + label {
+  opacity: 1;
 }
 
 /* Scale canvas with resize attribute to full size */
-canvas[resize] {
-    width: 100%;
-    height: 99%;
+canvas {
+  width: 100%;
+  height: 100%;
+}
+/* canvas[resize] {
+  width: 100%;
+  height: 99%;
+} */
+
+textarea,
+input[type='text'] {
+  font-size: 24px;
+  border: none;
+  color: #b239ff;
+  font-family: sans-serif;
+  padding: 5px;
+  background-color: transparent;
+  border: 2px solid #b239ff;
+  padding: 8px 16px;
 }
 
-.menue{
-	position: fixed;
-	top: 0px;
-	display: flex;
-	width: 100%;
-}
-
-#help{
-    font-family: Orbitron, sans-serif;
-    position: fixed;
-    bottom: 0px;
-    margin: 20px;
-}
-
-#helpcontent{
-    visibility: hidden;
-}
-
-.stagecontent{
-	height: calc(100% - 2.5em);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	margin: 1vw;
-}
-
-
-textarea, input[type="text"]{
-	font-size: 2vw;
-	border: none;
-	color: #B239FF;
-	font-family: sans-serif;
-	padding: 5px;
-	background-color: transparent;
-	border: 2px solid #B239FF;
-	height: calc(3vw - 10px);
-}
-
-button{
+button {
   display: block;
   /*height: 40px;*/
-  line-height: 3vw;
-  font-size: 2vw;
+  font-size: 24px;
   font-family: 'Orbitron', sans-serif;
   text-decoration: none;
-  color: #B239FF;
-  border: 2px solid #B239FF;
+  color: #b239ff;
+  border: 2px solid #b239ff;
   letter-spacing: 2px;
   text-align: center;
   position: relative;
-  transition: all .35s;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  transition: all 0.35s;
+  padding: 8px 16px;
   background-color: transparent;
 }
 
-button:hover{
+button:hover {
   color: #006699;
   border: 2px solid #006699;
 }
 
-#templates{
-
-    position: fixed;
-    left: 20px;
-    top: 10%;
-    max-height: 70%;
+.template {
+  box-sizing: content-box;
+  width: 150px;
+  height: 150px;
+  border: 1px solid white;
+  margin: 3px;
 }
 
-.template{
-    width: 60px;
-    height: 60px;
-    border: 1px solid white;
-    margin: 3px;
+.pixel {
+  width: 10px;
+  height: 10px;
+  float: left;
 }
 
-.pixel{
-    width: 10px;
-    height: 10px;
-    float: left;
+#color-options {
+  display: flex;
 }
 
-
-
-
-
+#color-options .wrapper {
+  width: 64px;
+  height: 64px;
+  margin-left: 12px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#color-options input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+#color-options label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
